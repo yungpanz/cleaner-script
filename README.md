@@ -1,6 +1,7 @@
 # Mac-OS Cleaning
 ---
 Do you really want to pay for overpriced, performance heavy, bloated, pure junk software?
+**NO, you don't**
 
 > Every resemblance to CleanMyMac X is purely coincidental
 
