@@ -23,7 +23,7 @@ Folder_list = NewType('Folder_list', List[str])
 
 args = parser.parse_args()
 
-root_home = '/Users/paoloanzani'
+root_home = os.getenv("HOME")
 
 folders = Folder_list(["~/.cache", '~/.pub-cache', '/usr/local/var/cache',
                         '~/.cargo/registry/cache', '~/Library/Caches/vscode-cpptools',
