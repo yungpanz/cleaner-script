@@ -14,7 +14,8 @@ from parsing import reader
 # CLI argument parsing
 
 parser = argparse.ArgumentParser(description='Clean Mac-OS junk.')
-parser.add_argument('--full', action='store_true', help='Full disk cleaning')
+parser.add_argument('--full', action='store_true',
+                    help='Full disk cleaning')
 parser.add_argument('config', type=str, help='Config file path')
 
 # Custom types
@@ -54,7 +55,7 @@ def main():
     if args.full:
         for f in folders_full:
             clean_folder(f)
-        # A system reboot is necessary when deleting /private/var/folders content
+        # system reboot is necessary when deleting /private/var/folders 
         subprocess.call(['sudo', 'reboot'])
 
     print("Cleaning complete")
