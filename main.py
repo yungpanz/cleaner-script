@@ -9,11 +9,13 @@
 
 import subprocess, os, argparse, shutil
 from typing import NewType, List
+from parsing import reader
 
 # CLI argument parsing
 
 parser = argparse.ArgumentParser(description='Clean Mac-OS junk.')
 parser.add_argument('--full', action='store_true', help='Full disk cleaning')
+parser.add_argument('config', type=str, help='Config file path')
 
 # Custom types
 
@@ -25,14 +27,9 @@ args = parser.parse_args()
 
 root_home = os.getenv("HOME")
 
-folders = Folder_list(["~/.cache", '~/.pub-cache', '/usr/local/var/cache',
-                        '~/.cargo/registry/cache', '~/Library/Caches/vscode-cpptools',
-                        '~/Library/Caches/typescript', '~/Library/Caches/pip',
-                        '~/Library/Containers/com.apple.Mail/Data/Library/Caches',
-                        '~/Library/Containers/com.apple.Safari/Data/Library/Caches'])
-
-folders_extra = Folder_list(['~/Library/Caches/Google/Chrome', '~/Library/Caches/com.spotify.client',
-                              '/private/var/folders'])
+folders = Folder_list(reader(args.config, "folders"))
+          
+folders_full = Folder_list(reader(args.config, "folders_full"))
 
 # Delete a given folder
 
@@ -55,7 +52,7 @@ def main():
     
     # if --full is passed execute full clean
     if args.full:
-        for f in folders_extra:
+        for f in folders_full:
             clean_folder(f)
         # A system reboot is necessary when deleting /private/var/folders content
         subprocess.call(['sudo', 'reboot'])
