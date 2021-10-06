@@ -3,15 +3,14 @@
 # JSON parser for folders list
 
 import json, os
-from main import Folder_list
 
 
-def reader(file_path: str, key: str) -> Folder_list:
+def reader(file_path: str, key: str) -> list:
     # Open JSON file
     fp = open(file_path)
 
     # Parsing JSON file
     _json = json.loads(fp.read())
 
-    l = Folder_list(_json[key])
+    l = _json[key]
     return l
