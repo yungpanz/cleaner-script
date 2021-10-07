@@ -1,4 +1,4 @@
-# Mac-OS Cleaning
+# Mac-OS Cleaning ♻️
 ---
 Do you really want to pay for overpriced, performance heavy, bloated, pure junk software?
 **NO, you don't**
