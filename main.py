@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
+# Paolo Anzani <p.anzani@campus.unimib.it> 10-05-2021
 
-# Version 1.0
+# Version 1.1
 
 # Mac-OS junk cleaner script
 # Latest tested version Mac-OS Big Sur 11.5
 
-# Launch the script from the terminal app or it will not work properly
+# Launch with sudo
 
 import subprocess, os, argparse, shutil
 from typing import NewType, List
 from parsing import reader
+from logger import log_size
 
 # CLI argument parsing
 
@@ -41,8 +43,10 @@ def clean_folder(folder: str):
         file_path = os.path.join(folder, file_name)
         # Check if file or directory
         if os.path.isfile(file_path) or os.path.islink(file_path):
-            subprocess.call(['sudo', 'rm', file_path])
+            log_size(file_path)
+            subprocess.call(['rm', file_path])
         elif os.path.isdir(file_path):
+            log_size(file_path)
             shutil.rmtree(file_path)
             
 # Main function
