@@ -8,6 +8,6 @@ Do you really want to pay for overpriced, performance heavy, bloated, pure junk 
 ### To do
 
 - [x] Read folders to clean from a JSON file
-- [ ] Log number of removed file and size
+- [x] Log removed file size
 - [ ] Create GUI for selecting folders and dump them into a JSON file
 - [ ] Implement a folders blacklist for safety reasons
