@@ -2,19 +2,38 @@
 
 # Test script
 
-import subprocess
-import os
-from main import *
+import subprocess, os
+import random as rnd
+from main import clean_folder
+from logger import log_size
+
+# Global variables
+
+seed = "qwertyuiopasdfghjklzxcvbnm1234567890"
+
+def rand_string(seed: str) -> str:
+    s = ''
+    max_len = len(seed)
+    s_len = rnd.randint(1, len(seed))
+
+    while (len(s) < s_len):
+        s = s + seed[rnd.randint(0,max_len-1)]
+    
+    return s
 
 
 def main():
-    # Create a dummy test folder with file in it
+    # Create a dummy test folder with files in it
     folder = "testfolder"
-    file_name = "file.txt"
-    path = folder + '/' + file_name
 
     os.system(f'mkdir {folder}')
-    os.system(f'touch {path}')
+
+    # Generate n random files
+    for i in range(10):
+        n = rnd.randint(1, 30)
+        s = rand_string(seed)
+        path = folder + '/' + f'file{i}.txt' 
+        os.system(f'touch {path} && echo {s} > {path}')
 
     # Try deleting content in folder
     clean_folder(folder)
