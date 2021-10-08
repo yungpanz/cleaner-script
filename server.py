@@ -30,7 +30,7 @@ def dialog():
             status = 'succes'
             code = 201
 
-        response = json.dumps({'data': path[2:-3], 'status': status, 'code': code})
+        response = json.dumps({'folder': path[2:-3], 'status': status, 'code': code})
         print(path) # Log it in the console
         return response
     else:

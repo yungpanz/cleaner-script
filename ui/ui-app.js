@@ -13,4 +13,18 @@ async function getFolder() {
     const data = await response.json();
 
     console.log(data);
+
+    /* Show selected folder */
+    const { folder, status } = data;
+    addToList(folder);
+    
 };
+
+function addToList(folder) {
+    const sect = document.querySelector('#folder-list');
+    const entry = document.createElement('p');
+    entry.textContent = folder;
+    sect.appendChild(entry);
+};
+
+
