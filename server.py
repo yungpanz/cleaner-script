@@ -22,7 +22,15 @@ def main():
 def dialog():
     if request.method == 'POST':
         path = str(subprocess.check_output(['python3', 'dialog.py']))
-        response = json.dumps({'data': path[2:-3], 'status': 'succes', 'code': 201})
+
+        if path[2:-3] == '':
+            status = 'error'
+            code = 501
+        else:
+            status = 'succes'
+            code = 201
+
+        response = json.dumps({'data': path[2:-3], 'status': status, 'code': code})
         print(path) # Log it in the console
         return response
     else:
