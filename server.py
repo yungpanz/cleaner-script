@@ -18,9 +18,9 @@ def main():
     return index
 
 # Dialog GUI activation end-point
-@app.route("/dialog", methods=['POST'])
+@app.route("/dialog", methods=['GET'])
 def dialog():
-    if request.method == 'POST':
+    if request.method == 'GET':
         path = str(subprocess.check_output(['python3', 'dialog.py']))
 
         if path[2:-3] == '':

@@ -3,13 +3,17 @@
 * UI
 */
 
+// Global variables
+
+let n = 0;
+
 /* Open Dialog GUI */
 
 async function getFolder() {
     /* Post request to server.py dialog endpoint */
     const url = 'http://127.0.0.1:5000/dialog';
 
-    const response = await fetch(url, { method: 'POST' });
+    const response = await fetch(url, { method: 'GET' });
 
     const data = await response.json();
 
@@ -24,10 +28,38 @@ async function getFolder() {
 };
 
 function addToList(folder) {
-    const sect = document.querySelector('#folder-list');
+    const list = document.querySelector('#folder-list');
     const entry = document.createElement('p');
     entry.textContent = folder;
-    sect.appendChild(entry);
+    entry.setAttribute('id', `e${n}`);
+    list.appendChild(entry);
+
+    const rbutton = document.createElement('button');
+    rbutton.textContent = 'delete';
+    rbutton.setAttribute('onClick', `removeEntry('e${n}')`);
+    entry.appendChild(rbutton);
+    n += 1;
+};
+
+function removeEntry(id) {
+    const entry = document.querySelector(`#${id}`);
+    entry.remove();
+};
+
+
+/* Export selected folders to a JSON file */
+function dumpJson() {
+    const list = document.getElementById('folder-list').childNodes;
+    
+    let folderList = Array.from(list, (e) => e.textContent.slice(0, -6).replace(/\s/g, '\\ '));
+    // Remove first always empty element
+    folderList.shift();
+    console.log(folderList);
+
+    const data = {
+	"folders": folderList
+    };
+
 };
 
 
