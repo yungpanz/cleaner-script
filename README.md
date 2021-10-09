@@ -10,3 +10,5 @@ Do you really want to pay for overpriced, performance heavy, bloated, pure junk 
 - [x] Read folders to clean from a JSON file
 - [x] Log removed file size
 - [x] Create GUI for selecting folders and dump them into a JSON file
+- [ ] Make it PWA
+- [ ] Make it look good(at least nice)
