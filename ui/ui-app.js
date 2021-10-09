@@ -6,6 +6,7 @@
 /* Open Dialog GUI */
 
 async function getFolder() {
+    /* Post request to server.py dialog endpoint */
     const url = 'http://127.0.0.1:5000/dialog';
 
     const response = await fetch(url, { method: 'POST' });
@@ -16,7 +17,9 @@ async function getFolder() {
 
     /* Show selected folder */
     const { folder, status } = data;
-    addToList(folder);
+    if(status == 'success') {
+	addToList(folder);
+    };
     
 };
 

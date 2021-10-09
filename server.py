@@ -27,7 +27,7 @@ def dialog():
             status = 'error'
             code = 501
         else:
-            status = 'succes'
+            status = 'success'
             code = 201
 
         response = json.dumps({'folder': path[2:-3], 'status': status, 'code': code})
