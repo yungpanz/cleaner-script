@@ -60,6 +60,22 @@ function dumpJson() {
 	"folders": folderList
     };
 
+    jsonExport(JSON.stringify(data));
+
 };
+
+/* POST request to server endpoint to export json config */
+async function jsonExport(data) {
+    const url = 'http://127.0.0.1:5000/export';
+    const header = new Headers({ 'Content-Type': 'application/json' });
+    const response = await fetch(url, {
+	method: 'POST',
+	headers: header,
+	body: data
+    });
+
+    console.log(response);
+};
+    
 
 

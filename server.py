@@ -36,6 +36,16 @@ def dialog():
     else:
         return 'wrong type request'
 
+# Export and safe config file end-point
+@app.route("/export", methods=['POST'])
+def export():
+    if request.method == 'POST':
+        data = request.json
+        print(data)
+        return 'export success'
+    else:
+        return 'wrong type request'
+
 if __name__ == "__main__":
     app.run()
 
