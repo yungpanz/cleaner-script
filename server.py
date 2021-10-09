@@ -31,7 +31,7 @@ def dialog():
             code = 201
 
         response = json.dumps({'folder': path[2:-3], 'status': status, 'code': code})
-        print(path) # Log it in the console
+        print(f'path selected: {path}') # Log it in the console
         return response
     else:
         return 'wrong type request'
@@ -40,8 +40,14 @@ def dialog():
 @app.route("/export", methods=['POST'])
 def export():
     if request.method == 'POST':
-        data = request.json
-        print(data)
+        data = json.dumps(request.json).replace('\\\\', '\\')
+        print(f'export data recived: {data}') # Log it to the console
+
+        fp = open("config.json", "w")
+        fp.write(data)
+        fp.close()
+        print('data saved!')
+        
         return 'export success'
     else:
         return 'wrong type request'
