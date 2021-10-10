@@ -13,7 +13,11 @@ async function getFolder() {
     /* Post request to server.py dialog endpoint */
     const url = 'http://localhost:5000/dialog';
 
+    toggleTip(true);
+
     const response = await fetch(url, { method: 'GET' });
+
+    toggleTip(false);
 
     const data = await response.json();
 
@@ -27,6 +31,16 @@ async function getFolder() {
     
 };
 
+/* Show and hide suggestions */
+function toggleTip(flag) {
+    const element = document.getElementById('tip');
+       
+    element.setAttribute(
+        'style', 
+        flag ? ' ' : 'display: none;'
+    );
+};
+
 /* Add select folders to the list */
 function addToList(folder) {
     const list = document.querySelector('#folder-list');
@@ -38,6 +52,7 @@ function addToList(folder) {
     const rbutton = document.createElement('button');
     rbutton.textContent = 'delete';
     rbutton.setAttribute('onClick', `removeEntry('e${n}')`);
+    rbutton.setAttribute('class', 'rbutton');
     entry.appendChild(rbutton);
     n += 1;
 };

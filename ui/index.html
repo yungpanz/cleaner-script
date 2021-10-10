@@ -1,21 +1,26 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="/ui/style.css">
-    <link rel="icon" href="/ui/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/ui/style.css" />
+    <link rel="icon" href="/ui/favicon.ico" />
     <title>Cleaner</title>
   </head>
   <body>
-      <p>Press 'cmd+shift+.' to show hidden folders</p>
-    </div>
-    <div>
-      <button onClick="getFolder()">select folder</button>
-    </div>
-    <div id="folder-list">
-    </div>
-    <div>
-      <button onClick="dumpJson()">export config</button>
-      <button onClick="loadJson()">load config</button>
-    </div>
+    <section class="grid">
+      <div>
+        <h1>Mac-OS <span class="gtext">Cleaner</span></h1>
+      </div>
+      <div>
+        <button onClick="getFolder()">select folder</button>
+      </div>
+      <div id="folder-list"></div>
+      <div>
+        <button onClick="dumpJson()">export config</button>
+        <button onClick="loadJson()">load config</button>
+      </div>
+      <div id="tip" style="display: none;">
+        <p>Press 'cmd+shift+.' to show hidden folders</p>
+      </div>
+    </section>
     <script src="/ui/ui-app.js"></script>
   </body>
 </html>
