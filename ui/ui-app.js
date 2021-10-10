@@ -11,7 +11,7 @@ let n = 0;
 
 async function getFolder() {
     /* Post request to server.py dialog endpoint */
-    const url = 'http://127.0.0.1:5000/dialog';
+    const url = 'http://localhost:5000/dialog';
 
     const response = await fetch(url, { method: 'GET' });
 
@@ -27,6 +27,7 @@ async function getFolder() {
     
 };
 
+/* Add select folders to the list */
 function addToList(folder) {
     const list = document.querySelector('#folder-list');
     const entry = document.createElement('p');
@@ -41,6 +42,7 @@ function addToList(folder) {
     n += 1;
 };
 
+/* Remove folder from the list */
 function removeEntry(id) {
     const entry = document.querySelector(`#${id}`);
     entry.remove();
@@ -66,7 +68,7 @@ function dumpJson() {
 
 /* POST request to server endpoint to export json config */
 async function jsonExport(data) {
-    const url = 'http://127.0.0.1:5000/export';
+    const url = 'http://localhost:5000/export';
     const header = new Headers({ 'Content-Type': 'application/json' });
     const response = await fetch(url, {
 	method: 'POST',
@@ -76,6 +78,3 @@ async function jsonExport(data) {
 
     console.log(response);
 };
-    
-
-
