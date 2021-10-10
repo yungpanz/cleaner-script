@@ -4,8 +4,7 @@
 
 import subprocess, os
 import random as rnd
-from main import clean_folder
-from logger import log_size
+from clean import clean_folder
 
 # Global variables
 
