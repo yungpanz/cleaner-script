@@ -36,7 +36,19 @@ def dialog():
     else:
         return 'wrong type request'
 
-# Export and safe config file end-point
+# Import json config file end-point
+@app.route("/import", methods=['GET'])
+def import_json():
+    if request.method == 'GET':
+        fp = open("config.json", "r")
+        response = json.dumps(fp.read().replace("\\", ""))
+        print(f'Sending data: {response}') # Log it to the console
+        fp.close()
+        return response
+    else:
+        return "wrong type request"
+
+# Export and save config file end-point
 @app.route("/export", methods=['POST'])
 def export():
     if request.method == 'POST':

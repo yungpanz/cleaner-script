@@ -78,3 +78,23 @@ async function jsonExport(data) {
 
     console.log(response);
 };
+
+/* Load config.json file in the UI */
+async function loadJson() {
+    const data = JSON.parse(await jsonImport());
+    console.log(data);
+
+    const { folders } = data;
+
+    folders.forEach((entry) => addToList(entry));
+};
+
+/* Make GET request to /import end-point */
+async function jsonImport() {
+    const url = 'http://localhost:5000/import'
+    const response = await fetch(url, { method: 'GET' });
+
+    const data = await response.json();
+    return data;
+};
+    
