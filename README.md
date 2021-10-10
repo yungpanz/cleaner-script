@@ -7,9 +7,8 @@ Do you really want to pay for overpriced, performance heavy, bloated, pure junk 
 
 ![Screenshot](./screenshot/gui-screen.png?raw=true "main GUI")
 
-### To do
+### Features
 
-- [x] Read folders to clean from a JSON file
-- [x] Log removed file size
-- [x] Create GUI for selecting folders and dump them into a JSON file
-- [ ] Make it look good(at least nice)
+- [x] Simple browser UI selfhosted on local server
+- [x] Import and Export configuration file
+- [x] No framework, no useless code
