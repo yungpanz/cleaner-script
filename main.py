@@ -32,7 +32,6 @@ root_home = os.getenv("HOME")
 
 folders = Folder_list(reader(args.config, "folders"))
           
-folders_full = Folder_list(reader(args.config, "folders_full"))
 
 # Delete a given folder
 
@@ -60,6 +59,7 @@ def main():
     
     # if --full is passed execute full clean
     if args.full:
+        folders_full = Folder_list(reader(args.config, "folders_full"))
         for f in folders_full:
             removed_size += clean_folder(f)
 

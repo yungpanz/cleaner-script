@@ -69,8 +69,6 @@ function dumpJson() {
     const list = document.getElementById('folder-list').childNodes;
     
     let folderList = Array.from(list, (e) => e.textContent.slice(0, -6).replace(/\s/g, '\\ '));
-    // Remove first always empty element
-    folderList.shift();
     console.log(folderList);
 
     const data = {
