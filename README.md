@@ -5,10 +5,16 @@ Do you really want to pay for overpriced, performance heavy, bloated, pure junk 
 
 > Every resemblance to CleanMyMac X is purely coincidental
 
-![Screenshot](./screenshot/gui-screen.png?raw=true "main GUI")
 
 ### Features
 
 - [x] Simple browser UI selfhosted on local server
 - [x] Import and Export configuration file
 - [x] No framework, no useless code
+- [x] Light and Dark mode
+
+#### Light mode
+![Screenshot](./screenshot/gui-light.png?raw=true "main GUI")
+
+#### Dark mode
+![Screenshot](./screenshot/gui-dark.png?raw=true "main GUI")

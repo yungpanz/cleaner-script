@@ -112,4 +112,35 @@ async function jsonImport() {
     const data = await response.json();
     return data;
 };
+
+/** 
+ * Dark and Light mode toggling and
+ * make it persistent on refershing
+*/
+
+const checkbox = document.getElementById('checkbox');
+
+// Run toggle function when checkbox is checked
+checkbox.addEventListener('change', () => {
+    // Apply .dark css class on body
+    document.body.classList.toggle('dark');
+    // Set cached value of dark-mode as on
+    localStorage.setItem('dark-mode', 'on');
+});
+
+// Toggle is cached value of dark mode is on
+if (localStorage.getItem('dark-mode') == 'on') {
+    checkbox.checked = true;
+    document.body.classList.toggle('dark');
+};
+
+// Update value in cache when toggle is set on light
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked == false) {
+        localStorage.setItem('dark-mode', 'off');
+    };
+});
+
+console.log(checkbox.checked);
+
     
