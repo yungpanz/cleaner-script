@@ -5,6 +5,8 @@ Do you really want to pay for overpriced, performance heavy, bloated, pure junk 
 
 > Every resemblance to CleanMyMac X is purely coincidental
 
+![Screenshot](./screenshot/gui-screen.png?raw=true "main GUI")
+
 ### To do
 
 - [x] Read folders to clean from a JSON file
