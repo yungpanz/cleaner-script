@@ -7,8 +7,12 @@
   <body>
     <div>
       <input type="checkbox" class="checkbox" id="checkbox">
-      <label for="checkbox" class="label">
+      <label for="checkbox" class="labelcheckbox">
         <div class="ball"></div>
+      </label>
+      <input type="button" class="clean" id="clean">
+      <label for="clean" class="labelclean">
+        🧼 
       </label>
     </div>
     <section class="grid">
@@ -26,7 +30,15 @@
       <div id="tip" style="display: none;">
         <p>Press 'cmd+shift+.' to show hidden folders</p>
       </div>
+      <div id="modal" class="modal">
+        <p>Clean folders?</p>
+        <input type="button" class="confirm" id="confirm">
+        <label for="confirm" class="labelconfirm">confirm</label>
+        <input type="button" class="cancel" id="cancel">
+        <label for="cancel" class="labelcancel">cancel</label>
+      </div>
     </section>
+    <div id="overlay"></div>  
     <script src="/ui/ui-app.js"></script>
   </body>
 </html>

@@ -111,6 +111,43 @@ async function jsonImport() {
     return data;
 };
 
+/* Clean folders */
+const cleanbtn = document.getElementById('clean');
+const confirmbtn = document.getElementById('confirm');
+const cancelbtn = document.getElementById('cancel');
+const overlay = document.getElementById('overlay');
+const modal = document.getElementById('modal');
+
+// Toggle dark overlay and modal
+cleanbtn.addEventListener('click', () => {
+    overlay.setAttribute('class', 'active');
+    modal.setAttribute('class', 'modal active');
+});
+
+// Confirm cleaning
+confirmbtn.addEventListener('click', () => {
+    cleanFolders();
+    overlay.setAttribute('class', ' ');
+    modal.setAttribute('class', 'modal');
+});
+
+// Cancel cleaning and close modal
+cancelbtn.addEventListener('click', () => {
+    overlay.setAttribute('class', ' ');
+    modal.setAttribute('class', 'modal');
+});
+
+/* Make GET request to /clean end-point */
+async function cleanFolders() {
+    const url = "http://localhost:5000/clean";
+    const response = await fetch(url, { method: 'GET' });
+    const data = await response.json(); 
+
+    const { log } = data;
+    console.log(log);
+};
+
+
 /** 
  * Dark and Light mode toggling and
  * make it persistent on refershing

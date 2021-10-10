@@ -64,6 +64,16 @@ def export():
     else:
         return 'wrong type request'
 
+@app.route("/clean", methods=['GET'])
+def clean():
+    if request.method == 'GET':
+        log = str(subprocess.check_output(["./clean.py", "config.json"]))
+        print(log) # Log to the console
+        response = json.dumps({'log': log})
+        return response
+    else:
+        return 'wrong type request'
+
 if __name__ == "__main__":
     app.run()
 
