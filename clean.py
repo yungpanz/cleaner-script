@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # Paolo Anzani <p.anzani@campus.unimib.it> 10-05-2021
 
-# Version 1.1
-
 # Mac-OS junk cleaner script
 # Latest tested version Mac-OS Big Sur 11.5
 
