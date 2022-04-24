@@ -11,7 +11,7 @@ let n = 0;
 
 async function getFolder() {
     /* Post request to server.py dialog endpoint */
-    const url = 'http://localhost:5000/dialog';
+    const url = 'http://localhost:8080/dialog';
 
     toggleTip(true);
 
@@ -81,7 +81,7 @@ function dumpJson() {
 
 /* POST request to server endpoint to export json config */
 async function jsonExport(data) {
-    const url = 'http://localhost:5000/export';
+    const url = 'http://localhost:8080/export';
     const header = new Headers({ 'Content-Type': 'application/json' });
     const response = await fetch(url, {
 	method: 'POST',
@@ -104,7 +104,7 @@ async function loadJson() {
 
 /* Make GET request to /import end-point */
 async function jsonImport() {
-    const url = 'http://localhost:5000/import'
+    const url = 'http://localhost:8080/import'
     const response = await fetch(url, { method: 'GET' });
 
     const data = await response.json();
@@ -139,7 +139,7 @@ cancelbtn.addEventListener('click', () => {
 
 /* Make GET request to /clean end-point */
 async function cleanFolders() {
-    const url = "http://localhost:5000/clean";
+    const url = "http://localhost:8080/clean";
     const response = await fetch(url, { method: 'GET' });
     const data = await response.json(); 
 

@@ -7,7 +7,7 @@ import webbrowser as wb
 import subprocess
 
 # Global variables
-url = 'http://localhost:5000/'
+url = 'http://localhost:8080/'
 
 def main():
     # Open in a new window if not already open

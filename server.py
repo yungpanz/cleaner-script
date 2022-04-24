@@ -75,7 +75,7 @@ def clean():
         return 'wrong type request'
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='localhost', port=8080)
 
 
 
